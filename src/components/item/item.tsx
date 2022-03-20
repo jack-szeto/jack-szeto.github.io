@@ -57,7 +57,7 @@ export const Item = ({
                 <div className={styles.grow}></div>
 
                 <div className={styles.row}>
-                    <Button fullWidth variant="gradient" gradient={{ from: 'teal', to: 'cyan', deg: 60 }}>Play</Button>
+                    <Button fullWidth variant="gradient" gradient={{ from: 'teal', to: 'cyan', deg: 60 }}>Preview</Button>
                     <Button fullWidth variant="gradient" gradient={{ from: 'teal', to: 'cyan', deg: 60 }}>Play</Button>
                 </div>
             </Card>

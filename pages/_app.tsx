@@ -1,10 +1,18 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
-import '@styles/globals.scss';
+import {
+    ColorScheme,
+    ColorSchemeProvider,
+    MantineProvider,
+} from "@mantine/core";
+import "@styles/globals.scss";
+import { useState } from "react";
 
 export default function App(props: AppProps) {
     const { Component, pageProps } = props;
+    const [colorScheme, setColorScheme] = useState<ColorScheme>("dark");
+    const toggleColorScheme = (value?: ColorScheme) =>
+        setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
     return (
         <>
@@ -16,19 +24,26 @@ export default function App(props: AppProps) {
                 />
             </Head>
 
-            <MantineProvider
-                withGlobalStyles
-                withNormalizeCSS
-                theme={{
-                    /** Put your mantine theme override here */
-                    colorScheme: "dark",
-                    fontFamily: "Mallanna, Verdana, sans-serif",
-                    fontFamilyMonospace: 'Monaco, Courier, monospace',
-                    headings: {fontFamily: "Mallanna, Verdana, sans-serif"},
-                }}
+            <ColorSchemeProvider
+                colorScheme={colorScheme}
+                toggleColorScheme={toggleColorScheme}
             >
-                <Component {...pageProps} />
-            </MantineProvider>
+                <MantineProvider
+                    withGlobalStyles
+                    withNormalizeCSS
+                    theme={{
+                        /** Put your mantine theme override here */
+                        colorScheme: colorScheme,
+                        fontFamily: "Mallanna, Verdana, sans-serif",
+                        fontFamilyMonospace: "Monaco, Courier, monospace",
+                        headings: {
+                            fontFamily: "Mallanna, Verdana, sans-serif",
+                        },
+                    }}
+                >
+                    <Component {...pageProps} />
+                </MantineProvider>
+            </ColorSchemeProvider>
         </>
     );
 }

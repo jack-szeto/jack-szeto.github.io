@@ -1,12 +1,41 @@
 .banner {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 1px;
     height: 100vh;
+    z-index: 0;
+
+    background-color: #12b886;
 
     .title {
-        
+        z-index: 3;
+        color: #ffffff;
+        padding: 20px;
+
+        h1 {
+            font-size: 4rem;
+
+            span {
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .layer {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        inset: 0 0 0 0;
+        z-index: 0;
+        pointer-events: none;
+
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                z-index: #{$i};
+            }
+        }
     }
 }

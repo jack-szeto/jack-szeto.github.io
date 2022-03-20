@@ -1,17 +1,18 @@
-import dontspendallyourcoins from '@assets/images/dontspendallyourcoins.png';
-import bushi from '@assets/images/bushi.png';
-import repairgrandson from '@assets/images/repair-grandson.png';
-import holelifes from '@assets/images/holelifes.png';
-import onikiri from '@assets/images/onikiri.png';
-import managarmr from '@assets/images/managarmr.png';
-import ghostlydelivery from '@assets/images/ghostlydelivery.png';
-import forestdefenders from '@assets/images/forestdefenders.png';
-import morningstar from '@assets/images/morningstar.png';
-import steamtown from '@assets/images/steamtown.png';
-import mindatnight from '@assets/images/mindatnight.jpg';
-import artoflifes from '@assets/images/artoflifes.gif';
-import artoflifesBlur from '@assets/images/artoflifesBlur.jpg';
-import magnolialab from '@assets/images/magnolialab.jpg';
+import dontspendallyourcoins from '@assets/images/projects/dontspendallyourcoins.png';
+import bushi from '@assets/images/projects/bushi.png';
+import repairgrandson from '@assets/images/projects/repair-grandson.png';
+import holelifes from '@assets/images/projects/holelifes.png';
+import onikiri from '@assets/images/projects/onikiri.png';
+import managarmr from '@assets/images/projects/managarmr.png';
+import ghostlydelivery from '@assets/images/projects/ghostlydelivery.png';
+import forestdefenders from '@assets/images/projects/forestdefenders.png';
+import morningstar from '@assets/images/projects/morningstar.png';
+import steamtown from '@assets/images/projects/steamtown.png';
+import mindatnight from '@assets/images/projects/mindatnight.jpg';
+import artoflifes from '@assets/images/projects/artoflifes.gif';
+import artoflifesBlur from '@assets/images/projects/artoflifesBlur.jpg';
+import magnolialab from '@assets/images/projects/magnolialab.jpg';
+import relationsheep from '@assets/images/projects/relationsheep.png';
 import { parse } from 'date-fns';
 import { ReactNode } from 'react';
 
@@ -32,7 +33,7 @@ export type ProjectProp = {
 export const AllProjects: ProjectProp[] = [
     {
         name: "Don't Spend All Your Coins",
-        description: "My very first game jam game for Brackeys' Community Game Jam in August of 2019",
+        description: "My very first solo game jam game for Brackeys' Community Game Jam in 2019",
         thumnail: dontspendallyourcoins,
         status: "released",
         type: "game-jam",
@@ -147,5 +148,14 @@ export const AllProjects: ProjectProp[] = [
         type: "website",
         date: parse("13/09/2021", "dd/MM/yyyy", new Date),
         link: "https://magnolia-lab.com/",
+    },
+    {
+        name: "Relationsheep",
+        description: "My first game made for Global Game Jam 2019",
+        thumnail: relationsheep,
+        status: "released",
+        type: "game-jam",
+        date: parse("27/01/2019", "dd/MM/yyyy", new Date),
+        link: "https://globalgamejam.org/2019/games/relationsheep",
     },
 ];
