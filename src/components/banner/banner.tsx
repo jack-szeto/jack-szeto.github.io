@@ -19,25 +19,25 @@ export const Banner = () => {
             </div>
 
             <div className={styles.layer}>
-                <Image src={back} alt="" objectFit="contain" objectPosition={"100% 100%"} />
+                <Image src={back} alt="" layout="intrinsic" objectFit={"cover"} objectPosition={"50% 100%"} placeholder="blur" />
             </div>
             <div className={styles.layer}>
-                <Image src={light2} alt="" objectFit="contain" objectPosition={"100% 0%"} />
+                <Image src={light2} alt="" layout="intrinsic" objectFit={"cover"} objectPosition={"50% 0%"} placeholder="blur" />
             </div>
             <div className={styles.layer}>
-                <Image src={normal} alt="" objectFit="contain" objectPosition={"100% 100%"} />
+                <Image src={normal} alt="" layout="intrinsic" objectFit={"cover"} objectPosition={"50% 100%"} placeholder="blur" />
             </div>
             <div className={styles.layer}>
-                <Image src={light} alt="" objectFit="contain" objectPosition={"100% 0%"} />
+                <Image src={light} alt="" layout="intrinsic" objectFit={"cover"} objectPosition={"50% 0%"} placeholder="blur" />
             </div>
             <div className={styles.layer}>
-                <Image src={front2} alt="" objectFit="contain" objectPosition={"100% 100%"} />
+                <Image src={front2} alt="" layout="intrinsic" objectFit={"cover"} objectPosition={"50% 100%"} placeholder="blur" />
             </div>
             <div className={styles.layer}>
-                <Image src={front} alt="" objectFit="contain" objectPosition={"100% 100%"} />
+                <Image src={front} alt="" layout="intrinsic" objectFit={"cover"} objectPosition={"50% 100%"} placeholder="blur" />
             </div>
             <div className={styles.layer}>
-                <Image src={frontTop} alt="" objectFit="contain" objectPosition={"100% 0%"} />
+                <Image src={frontTop} alt="" layout="intrinsic" objectFit={"cover"} objectPosition={"50% 0%"} placeholder="blur" />
             </div>
         </div>
     );

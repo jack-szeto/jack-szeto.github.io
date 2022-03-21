@@ -1,12 +1,11 @@
 import { Banner } from "@components/banner/banner";
 import { ItemGrid } from "@components/item-grid/item-grid";
 import {
-    ActionIcon,
+    Box,
     Group,
     ScrollArea,
     useMantineColorScheme,
 } from "@mantine/core";
-import { Sun, MoonStars } from "tabler-icons-react";
 import React from "react";
 import styles from "./index.module.scss";
 
@@ -23,6 +22,10 @@ const HomePage = () => {
                 }}
             >
                 <Banner />
+
+                {/* <Group grow>
+                    {[...new Array(10)].map((_,i) => (<Box key={i} sx={(theme)=>({backgroundColor: theme.colors.dark[i]})}>{i}</Box>))}
+                </Group> */}
 
                 <ItemGrid />
             </ScrollArea>
