@@ -1,0 +1,32 @@
+:root {
+    .bubbleEffect {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 1px;
+        height: 1px;
+    }
+
+    .bubble {
+        position: absolute;
+        border: 1px currentColor solid;
+        border-radius: 50%;
+        pointer-events: auto;
+        transition: 1s transform;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 10%;
+            height: 25%;
+            top: 5%;
+            right: 25%;
+            background-color: #fff;
+            border-radius: 25% 50% 50% 25%;
+            transform: rotate(-60deg);
+            box-shadow: 0 0 6px #fff;
+        }
+    }
+}

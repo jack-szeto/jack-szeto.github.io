@@ -14,7 +14,7 @@
         z-index: 3;
         color: #ffffff;
         padding: 20px;
-        margin-top: 200px;
+        pointer-events: auto;
 
         h1 {
             font-size: 4rem;
@@ -29,13 +29,14 @@
         position: absolute;
         display: flex;
         justify-content: center;
+        align-items: center;
         inset: 0 0 0 0;
         overflow: hidden;
         z-index: 0;
         pointer-events: none;
 
-        @for $i from 1 through 10 {
-            &:nth-child(#{$i}) {
+        @for $i from 1 through 20 {
+            &:nth-of-type(#{$i}) {
                 z-index: #{$i};
             }
         }
