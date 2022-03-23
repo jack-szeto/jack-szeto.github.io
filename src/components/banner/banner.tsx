@@ -28,6 +28,22 @@ export const Banner = () => {
                 />
             </div>
             <div className={styles.layer}>
+                <div className={styles.bubble} style={{left: "66%"}}>
+                    <BubbleEffect
+                        bubbleColor={theme.colors.teal[2]}
+                        bubbleSize={new Rand2(20, 30)}
+                        opacity={0.7}
+                        thickness={1}
+                        maxBubbleAmount={10}
+                        direction={Vector2.up}
+                        emissionRate={2}
+                        speed={130}
+                        radius={30}
+                        lifeTime={6}
+                    />
+                </div>
+            </div>
+            <div className={styles.layer}>
                 <Image
                     src={light2}
                     alt=""
@@ -65,6 +81,22 @@ export const Banner = () => {
                 />
             </div>
             <div className={styles.layer}>
+                <div className={styles.bubble} style={{left: "15%"}}>
+                    <BubbleEffect
+                        bubbleColor={theme.colors.teal[1]}
+                        bubbleSize={new Rand2(40, 50)}
+                        opacity={0.8}
+                        thickness={1}
+                        maxBubbleAmount={10}
+                        direction={Vector2.up}
+                        emissionRate={2}
+                        speed={100}
+                        radius={100}
+                        lifeTime={7}
+                    />
+                </div>
+            </div>
+            <div className={styles.layer}>
                 <Image
                     src={front2}
                     alt=""
@@ -72,23 +104,6 @@ export const Banner = () => {
                     objectFit={"cover"}
                     objectPosition={"50% 100%"}
                     placeholder="blur"
-                />
-            </div>
-            <div className={styles.layer}>
-                <BubbleEffect
-                    bubbleColor={theme.colors.teal[0]}
-                    bubbleSize={new Rand2(20, 50)}
-                    opacity={0.8}
-                    thickness={1}
-                    maxBubbleAmount={6}
-                    direction={Vector2.up}
-                    emissionRate={3}
-                    speed={1}
-                    arc={360}
-                    radius={50}
-                    rotation={0}
-                    leftTime={1}
-                    debug
                 />
             </div>
             <div className={styles.layer}>
