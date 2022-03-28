@@ -1,9 +1,11 @@
-import { useForceUpdate, useInterval } from "@mantine/hooks";
+import { useForceUpdate, useIntersection, useInterval } from "@mantine/hooks";
+import useAudio from "@util/hooks/useAudio";
+import Dictionary from "@util/types/dictionary";
+import Rand2 from "@util/types/rand2";
+import Vector2 from "@util/types/vector2";
+import popSFX from "@assets/audio/pop.wav";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
-import Dictionary from "src/util/types/dictionary";
-import Rand2 from "src/util/types/rand2";
-import Vector2 from "src/util/types/vector2";
 import styles from "./styles.module.scss";
 
 type BubbleEffectProps = {
@@ -84,6 +86,8 @@ const Bubble = (props: BubbleProps) => {
 
     const lifeTime = useRef(props.lifeTime);
 
+    const [playing, popSFXToggle] = useAudio(popSFX);
+
     const [coordinate, setCoordinate] = useState(
         new Vector2(r * Math.cos(theta), r * Math.sin(theta))
     );
@@ -102,16 +106,21 @@ const Bubble = (props: BubbleProps) => {
             lifeTime.current -= 1 / fps;
         }
         if (lifeTime.current <= 0) {
-            interval.stop();
-            props.onPop(props.id);
+            pop();
         }
     }, (1 / fps) * 1000);
 
     const onHover = () => {
         if (lifeTime.current > 0) {
-            lifeTime.current = 0;
-            props.onPop(props.id);
+            popSFXToggle();
+            pop();
         }
+    };
+
+    const pop = () => {
+        lifeTime.current = 0;
+        interval.stop();
+        props.onPop(props.id);
     };
 
     useEffect(() => {
@@ -120,17 +129,7 @@ const Bubble = (props: BubbleProps) => {
     }, []);
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{
-                opacity: 0,
-            }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            style={{
-                transformOrigin: "center center",
-            }}
-        >
+        <div>
             <div
                 className={`${styles.bubbleContainer}`}
                 style={{
@@ -143,18 +142,32 @@ const Bubble = (props: BubbleProps) => {
                     transform: `translate(${position?.x}px, ${position?.y}px)`,
                 }}
             >
-                <div
-                    className={styles.bubble}
-                    onMouseEnter={onHover}
+                <motion.div
+                    initial={{ scale: 1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 1.5, opacity: 0 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                     style={{
-                        borderWidth: props.thickness ?? 1,
-                        boxShadow: `0 0 10px rgba(255, 255, 255, 0.5), 0 0 ${
-                            size.value / 2
-                        }px currentcolor inset`,
+                        width: "100%",
+                        height: "100%",
+                        position: "relative",
+                        transformOrigin: "center bottom",
                     }}
-                ></div>
+                >
+                    <div
+                        className={styles.bubble}
+                        onMouseEnter={onHover}
+                        style={{
+                            transformOrigin: "center center",
+                            borderWidth: props.thickness ?? 1,
+                            boxShadow: `0 0 10px rgba(255, 255, 255, 0.5), 0 0 ${
+                                size.value / 2
+                            }px currentcolor inset`,
+                        }}
+                    ></div>
+                </motion.div>
             </div>
-        </motion.div>
+        </div>
     );
 };
 export default BubbleEffect;

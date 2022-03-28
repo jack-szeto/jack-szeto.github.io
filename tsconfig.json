@@ -19,7 +19,7 @@
       "@pages/*": ["pages/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"],
+      "@util/*": ["src/util/*"],
       "@layouts/*": ["src/layouts/*"],
       "@models/*": ["src/models/*"],
       "@configs/*": ["src/configs/*"],
