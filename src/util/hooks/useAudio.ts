@@ -7,15 +7,19 @@ const useAudio = (url: string): [boolean, () => void] => {
     const toggle = () => setPlaying(!playing);
 
     useEffect(() => {
-        playing ? audio.play() : audio.pause();
-    }, [playing]);
+        try {
+            playing ? audio.play() : audio.pause();
+        } catch (error) {
+            
+        }
+    }, [playing, audio]);
 
     useEffect(() => {
         audio.addEventListener("ended", () => setPlaying(false));
         return () => {
             audio.removeEventListener("ended", () => setPlaying(false));
         };
-    }, []);
+    }, [audio]);
 
     return [playing, toggle];
 };

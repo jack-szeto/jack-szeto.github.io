@@ -1,34 +1,29 @@
 import { Banner } from "@components/banner/banner";
 import { ItemGrid } from "@components/item-grid/item-grid";
-import {
-    Box,
-    Group,
-    ScrollArea,
-    useMantineColorScheme,
-} from "@mantine/core";
-import React from "react";
+import { Box, Group, ScrollArea, useMantineColorScheme } from "@mantine/core";
+import Vector2 from "@util/types/vector2";
+import React, { useCallback, useRef, useState } from "react";
 import styles from "./index.module.scss";
 
 const HomePage = () => {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
     const dark = colorScheme === "dark";
+
+    const scrollChange = (position: { x: number; y: number }) => {};
+
     return (
         <div className={styles.homePage}>
-            <ScrollArea
-                onScrollPositionChange={() => {}}
+            {/* <ScrollArea
+                onScrollPositionChange={scrollChange}
                 style={{
                     position: "absolute",
                     inset: "0 0 0 0",
                 }}
-            >
-                <Banner />
+            > */}
+            <Banner />
 
-                {/* <Group grow>
-                    {[...new Array(10)].map((_,i) => (<Box key={i} sx={(theme)=>({backgroundColor: theme.colors.dark[i]})}>{i}</Box>))}
-                </Group> */}
-
-                <ItemGrid />
-            </ScrollArea>
+            <ItemGrid />
+            {/* </ScrollArea> */}
         </div>
     );
 };

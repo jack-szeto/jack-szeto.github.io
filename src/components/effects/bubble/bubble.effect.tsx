@@ -1,4 +1,4 @@
-import { useForceUpdate, useIntersection, useInterval } from "@mantine/hooks";
+import { useForceUpdate, useInterval } from "@mantine/hooks";
 import useAudio from "@util/hooks/useAudio";
 import Dictionary from "@util/types/dictionary";
 import Rand2 from "@util/types/rand2";
@@ -37,7 +37,7 @@ const BubbleEffect = (props: BubbleEffectProps) => {
     };
 
     const interval = useInterval(() => {
-        if (props.maxBubbleAmount > (bubbles.current?.Count ?? 99999)) {
+        if (props.maxBubbleAmount > (bubbles.current?.Count ?? 999)) {
             bubbles.current?.Add(
                 ++bubbleIndex.current,
                 <Bubble

@@ -12,14 +12,10 @@ class Vector2 {
         var y = this.y;
         var len = x * x + y * y;
 
-        if (len > 0)
-        {
+        if (len > 0) {
             len = 1 / Math.sqrt(len);
 
-            return new Vector2(
-                x * len,
-                y * len
-            );
+            return new Vector2(x * len, y * len);
         }
         return Vector2.zero;
     }
@@ -32,31 +28,26 @@ class Vector2 {
     }
 
     public add(value: Vector2): Vector2 {
-        this.x += value.x;
-        this.y += value.y;
-        return this;
+        return new Vector2(this.x + value.x, this.y + value.y);
     }
 
     public subtract(value: Vector2): Vector2 {
-        this.x -= value.x;
-        this.y -= value.y;
-        return this;
+        return new Vector2(this.x - value.x, this.y - value.y);
     }
 
     public multiply(value: number): Vector2 {
-        this.x *= value;
-        this.y *= value;
-        return this;
+        return new Vector2(this.x * value, this.y * value);
     }
 
     public divide(value: number): Vector2 {
-        this.x /= value;
-        this.y /= value;
-        return this;
+        return new Vector2(this.x / value, this.y / value);
     }
 
     public static get zero() {
         return new Vector2();
+    }
+    public static get one() {
+        return new Vector2(1, 1);
     }
     public static get up() {
         return new Vector2(0, -1);
