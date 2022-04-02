@@ -1,4 +1,4 @@
-import { Text, Title, useMantineTheme } from "@mantine/core";
+import { Title, useMantineTheme } from "@mantine/core";
 import back from "@assets/images/parallax/back.png";
 import front2 from "@assets/images/parallax/front 2.png";
 import frontTop from "@assets/images/parallax/front top.png";
@@ -10,7 +10,6 @@ import Image from "next/image";
 import React, {
     CSSProperties,
     ReactNode,
-    useContext,
     useEffect,
     useRef,
     useState,
@@ -75,7 +74,7 @@ export const Banner = () => {
         return () => {
             scrollY.clearListeners();
         };
-    }, []);
+    }, [scrollY]);
 
     return (
         <div ref={bannerRef} className={styles.banner}>
