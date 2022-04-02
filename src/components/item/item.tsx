@@ -1,22 +1,15 @@
+import { ProjectProp } from "@configs/project.config";
 import { Button, Card, Text, useMantineTheme } from "@mantine/core";
-import { useInterval } from "@mantine/hooks";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import Wave from "react-wavify";
+import React from "react";
 import styles from "./styles.module.scss";
 
 export const Item = ({
     id,
-    thumnail,
-    thumnailBlur,
-    title,
-    description,
+    project,
 }: {
     id?: string;
-    thumnail: StaticImageData;
-    thumnailBlur?: StaticImageData;
-    title: string;
-    description: string;
+    project: ProjectProp;
 }) => {
     const theme = useMantineTheme();
 
@@ -31,12 +24,12 @@ export const Item = ({
                 <Card.Section>
                     <figure className={styles.thumnail}>
                         <Image
-                            src={thumnail}
+                            src={project.thumnail}
                             alt=""
                             placeholder="blur"
                             objectFit="cover"
                             layout="fill"
-                            blurDataURL={thumnailBlur?.blurDataURL}
+                            blurDataURL={project.thumnailBlur?.blurDataURL}
                         />
                     </figure>
                 </Card.Section>
@@ -49,16 +42,40 @@ export const Item = ({
                     gradient={{ from: "cyan", to: "teal", deg: 60 }}
                     style={{ marginTop: theme.spacing.sm }}
                 >
-                    {title}
+                    {project.name}
                 </Text>
 
-                <Text>{description}</Text>
+                <Text>{project.description}</Text>
 
                 <div className={styles.grow}></div>
 
                 <div className={styles.row}>
-                    <Button fullWidth variant="gradient" gradient={{ from: 'teal', to: 'cyan', deg: 60 }}>Preview</Button>
-                    <Button fullWidth variant="gradient" gradient={{ from: 'teal', to: 'cyan', deg: 60 }}>Play</Button>
+                    {project.type !== "game-jam" && (
+                        <Button
+                            disabled={project.link == undefined}
+                            target={"_blank"}
+                            component="a"
+                            href={project.link}
+                            fullWidth
+                            variant="gradient"
+                            gradient={{ from: "teal", to: "green", deg: 60 }}
+                        >
+                            Preview
+                        </Button>
+                    )}
+                    {project.type === "game-jam" && (
+                        <Button
+                            disabled={project.link == undefined}
+                            target={"_blank"}
+                            component="a"
+                            href={project.link}
+                            fullWidth
+                            variant="gradient"
+                            gradient={{ from: "teal", to: "cyan", deg: 60 }}
+                        >
+                            Play
+                        </Button>
+                    )}
                 </div>
             </Card>
         </div>

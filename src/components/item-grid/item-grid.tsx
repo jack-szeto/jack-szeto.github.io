@@ -26,7 +26,7 @@ export const ItemGrid = () => {
         <Grid gutter={64} columns={12} justify={"center"}>
             {projects.map((project, index) => (
                 <Grid.Col key={project.name} sm={6} md={4}>
-                    <Item id={`${index}`} title={project.name} description={project.description} thumnail={project.thumnail} thumnailBlur={project.thumnailBlur} />
+                    <Item id={`${index}`} project={project} />
                 </Grid.Col>
             ))}
         </Grid>
