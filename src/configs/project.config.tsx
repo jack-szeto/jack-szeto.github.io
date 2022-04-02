@@ -15,6 +15,7 @@ import magnolialab from '@assets/images/projects/magnolialab.jpg';
 import relationsheep from '@assets/images/projects/relationsheep.png';
 import { parse } from 'date-fns';
 import { ReactNode } from 'react';
+import { StaticImageData } from 'next/image';
 
 export type ProjectType = 'website'|'game'|'game-jam';
 export type ProjectStatus = 'released'|'in-progress'|'suspend'|'failed';

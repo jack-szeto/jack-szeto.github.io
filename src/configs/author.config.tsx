@@ -3,6 +3,7 @@ import boreas from '@assets/images/authors/boreashe.jpg'
 import ikmountains from '@assets/images/authors/1kmountains.jpg'
 import lumchunho from '@assets/images/authors/lumchunho.jpg'
 import magnolia from '@assets/images/authors/magnolia.png'
+import { StaticImageData } from 'next/image'
 
 type AuthorType = 'myself'|'developer'|'artist'|'client';
 type Author = {
