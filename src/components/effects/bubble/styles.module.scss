@@ -1,0 +1,52 @@
+:root {
+    .bubbleEffect {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 1px;
+        height: 1px;
+        transform-origin: center center;
+    }
+
+    .bubbleContainer {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-origin: center center;
+    }
+
+    .bubble {
+        position: absolute;
+        border: 1px currentColor solid;
+        border-radius: 50%;
+        pointer-events: auto;
+        transition: 1s transform;
+        transform-origin: center center;
+        inset: 0 0 0 0;
+
+        animation: floating 5s infinite ease-in-out;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 10%;
+            height: 25%;
+            top: 5%;
+            right: 25%;
+            background-color: #fff;
+            border-radius: 25% 50% 50% 25%;
+            transform: rotate(-60deg);
+            box-shadow: 0 0 6px #fff;
+        }
+    }
+
+    @keyframes floating {
+        0% { transform: translate(0,  0px); }
+        30%  { transform: translate(15px, -5px); }
+        60%  { transform: translate(-15px, 10px); }
+        100%   { transform: translate(-0px, 0px); }  
+    }
+}
