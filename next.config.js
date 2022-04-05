@@ -1,14 +1,21 @@
+const debug = process.env.NODE_ENV !== 'production'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    exportPathMap: function () {
+        return {
+            '/': {
+                page: '/'
+            }
+        }
+    },
+    assetPrefix: ! debug ? '/' : '',
     reactStrictMode: true,
     styledComponent: true,
-    pwa: {
-        dest: "public",
-        register: true,
-        skipWaiting: true,
-        disable: process.env.NODE_ENV === "development"
-    },
     images: {
+        loader: 'akamai',
+        path: '',
+        domains: ['picsum.photos']
     },
     webpack: (config, options) => {
         config.module.rules.push({
